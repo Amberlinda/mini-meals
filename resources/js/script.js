@@ -55,9 +55,6 @@ $(document).ready(function () {
     });
 
 
-
-
-
 });
 
 //variables
@@ -65,7 +62,7 @@ $(document).ready(function () {
 var quantity;
 var price;
 var sum;
-var vselect,nvselect;
+var vselect, nvselect;
 
 init();
 
@@ -84,10 +81,12 @@ document.querySelector('.veg-1').addEventListener('click', function () {
         price = 60;
         vselected(1);
         document.querySelector('.icon-v-1').style.display = 'block';
+        spopup();
     }
 
-
 });
+
+
 
 //veg - 2
 
@@ -171,6 +170,7 @@ document.querySelector('.icon-v-1').addEventListener('click', function () {
     viconRemove(1);
     vselect = true;
     init();
+    document.querySelector('.icon-v-1').style.display = 'none';
 });
 
 //icon veg - 2
@@ -179,6 +179,7 @@ document.querySelector('.icon-v-2').addEventListener('click', function () {
     viconRemove(2);
     vselect = true;
     init();
+    document.querySelector('.icon-v-2').style.display = 'none';
 });
 
 //icon veg - 3
@@ -187,6 +188,7 @@ document.querySelector('.icon-v-3').addEventListener('click', function () {
     viconRemove(3);
     vselect = true;
     init();
+    document.querySelector('.icon-v-3').style.display = 'none';
 });
 
 //icon veg - 4
@@ -195,6 +197,7 @@ document.querySelector('.icon-v-4').addEventListener('click', function () {
     viconRemove(4);
     vselect = true;
     init();
+    document.querySelector('.icon-v-4').style.display = 'none';
 });
 
 //icon veg - 5
@@ -203,6 +206,7 @@ document.querySelector('.icon-v-5').addEventListener('click', function () {
     viconRemove(5);
     vselect = true;
     init();
+    document.querySelector('.icon-v-5').style.display = 'none';
 });
 
 //icon veg - 6
@@ -211,6 +215,7 @@ document.querySelector('.icon-v-6').addEventListener('click', function () {
     viconRemove(6);
     vselect = true;
     init();
+    document.querySelector('.icon-v-6').style.display = 'none';
 });
 
 //icon veg - 7
@@ -219,6 +224,7 @@ document.querySelector('.icon-v-7').addEventListener('click', function () {
     viconRemove(7);
     vselect = true;
     init();
+    document.querySelector('.icon-v-7').style.display = 'none';
 });
 
 //icon veg - 8
@@ -227,6 +233,7 @@ document.querySelector('.icon-v-8').addEventListener('click', function () {
     viconRemove(8);
     vselect = true;
     init();
+    document.querySelector('.icon-v-8').style.display = 'none';
 });
 /*----------------------------------------------------------------*/
 //Funtions for veg
@@ -235,7 +242,7 @@ function viconRemove(number) {
     var div = document.querySelector('.v-' + number);
     div.classList.remove('overlay-select');
     div.classList.add('overlay');
-    alert('You have unselected an item.');
+    uspopup();
 }
 //select an item
 
@@ -244,12 +251,12 @@ function vselected(order) {
     if (div.classList.contains('overlay')) {
         div.classList.remove('overlay');
         div.classList.add('overlay-select');
-        alert('You have selected an item.');
+        spopup();
         vselect = false;
     } else {
         div.classList.remove('overlay-select');
         div.classList.add('overlay');
-        alert('You have unselected an item.');
+        uspopup();
         init();
     }
 
@@ -361,6 +368,7 @@ document.querySelector('.icon-nv-1').addEventListener('click', function () {
     nviconRemove(1);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-1').style.display = 'none';
 });
 
 //icon - 2
@@ -369,6 +377,7 @@ document.querySelector('.icon-nv-2').addEventListener('click', function () {
     nviconRemove(2);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-2').style.display = 'none';
 });
 
 //icon - 3
@@ -377,6 +386,7 @@ document.querySelector('.icon-nv-3').addEventListener('click', function () {
     nviconRemove(3);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-3').style.display = 'none';
 });
 
 //icon - 4
@@ -385,6 +395,7 @@ document.querySelector('.icon-nv-4').addEventListener('click', function () {
     nviconRemove(4);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-4').style.display = 'none';
 });
 
 //icon - 5
@@ -393,6 +404,7 @@ document.querySelector('.icon-nv-5').addEventListener('click', function () {
     nviconRemove(5);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-5').style.display = 'none';
 });
 
 //icon - 6
@@ -401,6 +413,7 @@ document.querySelector('.icon-nv-6').addEventListener('click', function () {
     nviconRemove(6);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-6').style.display = 'none';
 });
 
 //icon - 7
@@ -409,6 +422,7 @@ document.querySelector('.icon-nv-7').addEventListener('click', function () {
     nviconRemove(7);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-7').style.display = 'none';
 });
 
 //icon - 8
@@ -417,6 +431,7 @@ document.querySelector('.icon-nv-8').addEventListener('click', function () {
     nviconRemove(8);
     nvselect = true;
     init();
+    document.querySelector('.icon-nv-8').style.display = 'none';
 });
 
 /*------------------------------------------------------------------------------------------------*/
@@ -431,7 +446,7 @@ function nviconRemove(number) {
     var div = document.querySelector('.nv-' + number);
     div.classList.remove('overlay-select');
     div.classList.add('overlay');
-    alert('You have unselected an item.');
+    uspopup();
 }
 //select an item
 
@@ -440,12 +455,12 @@ function nvselected(order) {
     if (div.classList.contains('overlay')) {
         div.classList.remove('overlay');
         div.classList.add('overlay-select');
-        alert('You have selected an item.');
+        spopup();
         nvselect = false;
     } else {
         div.classList.remove('overlay-select');
         div.classList.add('overlay');
-        alert('You have unselected an item.');
+        uspopup();
         init();
     }
 
@@ -471,5 +486,55 @@ function init() {
     sum = 0;
     document.getElementById('total').textContent = sum;
     document.getElementById('quantity').textContent = '0';
+}
+
+function spopup() {
+    let timerInterval
+    Swal.fire({
+        title: 'Selected',
+        timer: 500,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+                Swal.getContent().querySelector('strong')
+                    .textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+        if (
+            // Read more about handling dismissals
+            result.dismiss === Swal.DismissReason.timer
+        ) {
+            console.log('I was closed by the timer')
+        }
+    })
+}
+
+function uspopup() {
+    let timerInterval
+    Swal.fire({
+        title: 'Removed',
+        timer: 500,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+                Swal.getContent().querySelector('strong')
+                    .textContent = Swal.getTimerLeft()
+            }, 100)
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+        if (
+            // Read more about handling dismissals
+            result.dismiss === Swal.DismissReason.timer
+        ) {
+            console.log('I was closed by the timer')
+        }
+    })
 }
 /*------------------------------------------------------------------------------------*/
