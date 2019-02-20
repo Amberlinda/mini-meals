@@ -1,5 +1,5 @@
 /*-------------------------------
-/*basic color : #9980FA
+/*basic color : #ff418a
 ---------------------------------*/
 
 
@@ -15,11 +15,12 @@ BASIC CODE
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     font-size: 20px;
-    font-family: 'Open Sans', sans-serif, 'Arial';
+    font-family: 'Lato', sans-serif, 'Arial';
     font-weight: 400;
-    color: #555;
+    color: #fff;
 }
 
 
@@ -29,7 +30,7 @@ html {
 ---------------------------------*/
 .row {
     width: 1140px;
-    margin: 10px auto;
+    margin: 0 auto;
 }
 
 .clearfix {
@@ -49,18 +50,20 @@ html {
 ---------------------------------*/
 
 h1 {
-    text-align: center;
     text-transform: uppercase;
     font-weight: 300;
     font-size: 240%;
+    text-align: center;
     margin: 0;
+    display: inline-block;
+    color: #fff;
 }
 
 h1:after {
     display: block;
     width: 125px;
-    background-color: #9980FA;
-    content: ".";
+    background-color: #ff418a;
+    content: " ";
     height: 2px;
     margin: 0 auto;
     margin-top: 15px;
@@ -75,7 +78,7 @@ h3 {
 h3:before {
     content: " ";
     height: 1px;
-    background-color: #000;
+    background-color: #fff;
     width: 80%;
     margin: 0 auto;
     display: block;
@@ -89,20 +92,33 @@ h3:before {
 
 .section-meals {
     width: 100%;
-    height: 100vh;
     text-align: center;
+    height: 100vh;
 }
 
 .image-section {
     position: relative;
-    width: 70%;
+    width: 75%;
     float: left;
     margin: 0;
-    height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.79)), url(img/image-section-back.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.section-1 {
+    width: 75%;
+    float: left;
+    margin: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.79)), url(img/image-section-back.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+    background-attachment: fixed;
 }
 
 .welcome-text {
@@ -142,71 +158,109 @@ h3:before {
 }
 
 
-.meals-showcase {
-    width: 100%;
-    height: 45%;
-    height: auto;
-    margin-top: 40px;
+.meals-showcase,
+.non-veg-meals-showcase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 70px;
     display: none;
 }
 
-.non-veg-meals-showcase{
-    width: 100%;
-    margin-top: 40px;
-    display: none;
-}
 
-.hovereffect img {
-    width: 100%;
-    opacity: 1;
-    transition: 0.5s;
-    transform: scale(1.1);
-}
-
-
-.meals-showcase li,
-.non-veg-meals-showcase li {
+.meals-showcase > div,
+.non-veg-meals-showcase > div {
     list-style: none;
-    display: block;
-    width: 45%;
-    height: 250px;
-    float: left;
-    margin: 0 20px;
+    width: 30%;
+    height: 220px;
+    margin: 0 10%;
+    margin-top: 50px;
     border: 1px solid #000;
     position: relative;
+    float: left;
 }
 
-.hovereffect {
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-}
 
-.hovereffect:hover .overlay {
+
+
+
+.meals-showcase > div:hover .overlay,
+.non-veg-meals-showcase > div:hover .overlay {
     opacity: 1;
 }
 
-.hovereffect:hover img {
-    opacity: 0.8;
-    transform: scale(1.2);
+
+
+.img-responsive {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: 0.5s;
+    position: relative;
 }
+
+
+.btn-show:link,
+.btn-show:visited {
+    border: 1px solid #fff;
+    padding: 10px;
+    border-radius: 5px;
+    transition: box-shadow 0.2s;
+}
+
+.btn-show:hover {
+    box-shadow: 0 0 10px #fff;
+}
+
+.icon{
+   position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    font-size: 150%;
+    display: block;
+    transition: 0.2s;
+    display: none;
+}
+
+.icon:hover{
+    font-size: 180%;
+    color: #bebebe;
+}
+
 
 .overlay {
     position: absolute;
     opacity: 0;
     top: 50%;
     left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 16, 16, 0.79);
     transform: translate(-50%, -50%);
     color: #fff;
-    background-color: #000;
     transition: 0.2s linear;
-   
+
+}
+
+.overlay-select{
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 16, 16, 0.79);
+    transform: translate(-50%, -50%);
+    color: #000;
 }
 
 .info:link,
 .info:visited {
+    position: absolute;
     text-decoration: none;
-    color: #fff;
+    top: 50%;
+    left: 50%;
 }
 
 /*-------------------------------
@@ -215,12 +269,12 @@ h3:before {
 
 
 .form {
-    width: 30%;
+    width: 25%;
     float: right;
-    margin: 0;
-    background-color: #f2f2f2;
-    height: 100vh;
-
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    left: 75%;
 }
 
 .meals-form {
@@ -241,43 +295,51 @@ h3:before {
 
 input[type=text],
 input[type=number] {
-    width: 60%;
+    width: 120px;
     margin-top: 15px;
     border: none;
+    padding: 10px;
     border-bottom: 1px solid #555;
-
+    text-align: center;
+    border-radius: 5px;
 }
 
 
 
 input[type=submit],
 input[type=reset] {
-    border-radius: 200px;
+    width: 100px;
+    border-radius: 5px;
     text-decoration: none;
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 80%;
+    margin: 10px 10px;
 }
 
 input[type=submit] {
-    background-color: #9980FA;
+    background-color: #ff418a;
     color: #fff;
     transition: 0.5s;
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 input[type=submit]:hover {
-    background-color: #fff;
-    color: #555;
-    border: 2px solid #9980FA;
+    background-color: #f41b6e;
 }
 
 input[type=reset] {
     background-color: #fff;
-    border: 2px solid #9980FA;
     transition: 0.5s;
+
 }
 
 input[type=reset]:hover {
-    background-color: #9980FA;
+    background-color: #ff418a;
     color: #fff;
 }
 
@@ -328,7 +390,7 @@ input[type=reset]:hover {
 
 .btn-overlay {
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     top: 0;
     bottom: 0;
     left: 0;
@@ -354,3 +416,57 @@ IMAGE SECTION ANIMATION
 .js--image-section {
     transition: 0.1s;
 }
+
+
+.overlay-1{
+    opacity: 0;
+}
+
+/*-------------------------------
+/*MAIN NAVIGATION
+---------------------------------*/
+
+nav {
+    width: 100%;
+    background-color: #333;
+    width: 75%;
+    position: fixed;
+    height: 65px;
+    z-index: 1;
+}
+
+.logo {
+    float: left;
+    width: 6%;
+    margin: 6px 6px;
+}
+
+.main-nav {
+    float: left;
+}
+
+.main-nav li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 21px;
+
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    transition: 0.2s;
+    font-size: 80%;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #ff418a;
+
+}
+
+
