@@ -168,16 +168,35 @@
         <div class="form">
             <h1>mini &mdash; meals</h1>
             <form class="meals-form">
-                <div class="form-elements">
+              <div class="form-elements">
+                    <label >Quantity : </label>
+                </div>
+               <div class="form-elements">
 
-                    <input type="number" id="quantity" name="quantity" min="1" max="10" placeholder="Quantity" onchange="displaySum()" required>
+                    <label>Veg&nbsp;</label>
+                    <p class="line"></p>
+                    <label>Non-Veg</label>
                 </div>
                 <div class="form-elements">
+
+                    <input type="number" id="vquantity" name="quantity" min="0" placeholder="Quantity" onchange="displaySum()" required>
+                    <p class="line"></p>
+                    <input type="number" id="nvquantity" name="quantity" min="0" placeholder="Quantity" onchange="displaySum()" required>
+                </div>
+                <div class="form-elements">
+                    <label class="tq"></label>
+                </div>
+                <div class="form-elements">
+                    <label>Total</label>
                     <label id="total">Total</label>
                 </div>
                 <div class="form-elements">
-                    <input type="submit" value="submit">
-                    <input type="reset" value="reset">
+                    <label id="vorder">Total</label>
+                    <label id="nvorder">Total</label>
+                </div>
+                <div class="form-elements">
+                    <input type="submit" value="submit" class="submit">
+                    <input type="reset" value="reset" id="reset">
                 </div>
                 <div class="form-elements">
                     <h3>Choose one to show : </h3>

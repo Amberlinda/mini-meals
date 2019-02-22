@@ -59,10 +59,11 @@ $(document).ready(function () {
 
 //variables
 
-var quantity;
+var vquantity, nvquantity, totalquantity;
 var price;
 var sum;
 var vselect, nvselect;
+var vorder, nvorder;
 
 init();
 
@@ -82,6 +83,7 @@ document.querySelector('.veg-1').addEventListener('click', function () {
         vselected(1);
         document.querySelector('.icon-v-1').style.display = 'block';
         spopup();
+        vorder = 1;
     }
 
 });
@@ -95,6 +97,7 @@ document.querySelector('.veg-2').addEventListener('click', function () {
         price = 110;
         vselected(2);
         document.querySelector('.icon-v-2').style.display = 'block';
+        vorder = 2;
     }
 });
 
@@ -105,6 +108,7 @@ document.querySelector('.veg-3').addEventListener('click', function () {
         price = 110;
         vselected(3);
         document.querySelector('.icon-v-3').style.display = 'block';
+        vorder = 3;
     }
 });
 
@@ -115,6 +119,7 @@ document.querySelector('.veg-4').addEventListener('click', function () {
         price = 110;
         vselected(4);
         document.querySelector('.icon-v-4').style.display = 'block';
+        vorder = 4;
     }
 });
 
@@ -125,6 +130,7 @@ document.querySelector('.veg-5').addEventListener('click', function () {
         price = 110;
         vselected(5);
         document.querySelector('.icon-v-5').style.display = 'block';
+        vorder = 5;
     }
 });
 
@@ -135,6 +141,7 @@ document.querySelector('.veg-6').addEventListener('click', function () {
         price = 110;
         vselected(6);
         document.querySelector('.icon-v-6').style.display = 'block';
+        vorder = 6;
     }
 });
 
@@ -145,6 +152,7 @@ document.querySelector('.veg-7').addEventListener('click', function () {
         price = 110;
         vselected(7);
         document.querySelector('.icon-v-7').style.display = 'block';
+        vorder = 7;
     }
 });
 
@@ -155,6 +163,7 @@ document.querySelector('.veg-8').addEventListener('click', function () {
         price = 110;
         vselected(8);
         document.querySelector('.icon-v-8').style.display = 'block';
+        vorder = 8;
     }
 });
 
@@ -253,6 +262,7 @@ function vselected(order) {
         div.classList.add('overlay-select');
         spopup();
         vselect = false;
+        document.getElementById('vquantity').disabled = false;
     } else {
         div.classList.remove('overlay-select');
         div.classList.add('overlay');
@@ -277,6 +287,7 @@ function vselected(order) {
 document.querySelector('.non-veg-1').addEventListener('click', function () {
 
     if (nvselect) {
+        nvorder = 1;
         price = 60;
         nvselected(1);
         document.querySelector('.icon-nv-1').style.display = 'block';
@@ -290,6 +301,7 @@ document.querySelector('.non-veg-2').addEventListener('click', function () {
         price = 110;
         nvselected(2);
         document.querySelector('.icon-nv-2').style.display = 'block';
+        nvorder = 2;
     }
 });
 
@@ -300,6 +312,7 @@ document.querySelector('.non-veg-3').addEventListener('click', function () {
         price = 110;
         nvselected(3);
         document.querySelector('.icon-nv-3').style.display = 'block';
+        nvorder = 3;
     }
 });
 
@@ -310,6 +323,7 @@ document.querySelector('.non-veg-4').addEventListener('click', function () {
         price = 110;
         nvselected(4);
         document.querySelector('.icon-nv-4').style.display = 'block';
+        nvorder = 4;
     }
 });
 
@@ -320,6 +334,7 @@ document.querySelector('.non-veg-5').addEventListener('click', function () {
         price = 110;
         nvselected(5);
         document.querySelector('.icon-nv-5').style.display = 'block';
+        nvorder = 5;
     }
 });
 
@@ -330,6 +345,7 @@ document.querySelector('.non-veg-6').addEventListener('click', function () {
         price = 110;
         nvselected(6);
         document.querySelector('.icon-nv-6').style.display = 'block';
+        nvorder = 6;
     }
 });
 
@@ -340,6 +356,7 @@ document.querySelector('.non-veg-7').addEventListener('click', function () {
         price = 110;
         nvselected(7);
         document.querySelector('.icon-nv-7').style.display = 'block';
+        nvorder = 7;
     }
 });
 
@@ -350,6 +367,7 @@ document.querySelector('.non-veg-8').addEventListener('click', function () {
         price = 110;
         nvselected(8);
         document.querySelector('.icon-nv-8').style.display = 'block';
+        nvorder = 8;
     }
 });
 
@@ -457,6 +475,7 @@ function nvselected(order) {
         div.classList.add('overlay-select');
         spopup();
         nvselect = false;
+        document.getElementById('nvquantity').disabled = false;
     } else {
         div.classList.remove('overlay-select');
         div.classList.add('overlay');
@@ -471,21 +490,47 @@ function nvselected(order) {
 
 function displaySum() {
 
-    quantity = document.getElementById('quantity').value;
-    sum = quantity * price;
+    vquantity = document.getElementById('vquantity').value;
+    nvquantity = document.getElementById('nvquantity').value;
+    totalquantity = parseInt(nvquantity) + parseInt(vquantity);
+    document.querySelector('.tq').textContent = totalquantity;
+    if (totalquantity >= 15) {
+        document.querySelector('.submit').style.display = 'inline-block';
+    } else {
+        document.querySelector('.submit').style.display = 'none';
+    }
+    sum = (vquantity * price) + (nvquantity * price);
     document.getElementById('total').textContent = 'Rs.' + sum;
 }
 
 //to initialise
 
+document.getElementById('reset').addEventListener('click', function () {
+    init();
+    document.getElementById('#vorder').textContent = vorder;
+    document.getElementById('#nvorder').textContent = nvorder;
+    document.querySelector('.v-' + vorder).classList.remove('overlay-select');
+    document.querySelector('.v-' + vorder).classList.add('overlay');
+    document.querySelector('.nv-' + nvorder).classList.remove('overlay-select');
+    document.querySelector('.nv-' + nvorder).classList.add('overlay');
+});
+
 function init() {
     nvselect = true;
     vselect = true;
-    quantity = 0;
+    vquantity = 0;
+    nvquantity = 0;
+    vorder = nvorder = 0;
     price = 0;
     sum = 0;
+    totalquantity = 0;
     document.getElementById('total').textContent = sum;
-    document.getElementById('quantity').textContent = '0';
+    document.getElementById('vquantity').value = "0";
+    document.getElementById('nvquantity').value = "0";
+    document.getElementById('vquantity').disabled = true;
+    document.getElementById('nvquantity').disabled = true;
+    document.querySelector('.submit').style.display = 'none';
+    document.querySelector('.tq').textContent = '*Total quantiy should be greater than or equal to 15.';
 }
 
 function spopup() {
